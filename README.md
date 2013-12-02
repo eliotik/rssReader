@@ -42,27 +42,41 @@ Apache2.4
 
 MySQL
 =============================================================
-create database rssreader;
-grant usage on *.* to rssreader@localhost identified by 'rssreader';
-grant all privileges on rssreader.* to rssreader@localhost ;
+- create database rssreader;
+- grant usage on *.* to rssreader@localhost identified by 'rssreader';
+- grant all privileges on rssreader.* to rssreader@localhost ;
 
 Parameters
 =============================================================
-create file app/config/parameters.yml
-set content:
-    parameters:
-        database_driver: pdo_mysql
-        database_host: localhost
-        database_port: null
-        database_name: rssreader
-        database_user: rssreader
-        database_password: rssreader
-        mailer_transport: smtp
-        mailer_host: 127.0.0.1
-        mailer_user: null
-        mailer_password: null
-        locale: en
-        secret: 'somesecretkey:)'
+- create file app/config/parameters.yml
+- set content:
+```javascript
+        parameters:
+
+            database_driver: pdo_mysql
+
+            database_host: localhost
+
+            database_port: null
+
+            database_name: rssreader
+
+            database_user: rssreader
+
+            database_password: rssreader
+
+            mailer_transport: smtp
+
+            mailer_host: 127.0.0.1
+
+            mailer_user: null
+
+            mailer_password: null
+
+            locale: en
+
+            secret: 'somesecretkey:)'
+```
 
 ExtJS 4.2.1
 =============================================================
