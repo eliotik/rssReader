@@ -1,0 +1,5 @@
+RssReaderBundle_homepage:
+    pattern:  /
+    defaults: { _controller: RssReaderBundle:Global:index }
+    requirements:
+        _method:  GET

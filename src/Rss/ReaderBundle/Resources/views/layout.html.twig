@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {% stylesheets '@base_css' combine=true %}
+        <link href="{{ asset_url|replace({'/app_dev.php': ''}) }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+{% endblock %}
+    
+{% block javascripts %}{% endblock %}

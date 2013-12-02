@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} RSS Reader{% endblock%}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% include "RssReaderBundle:User:General/stylesheets.html.twig" %}
+{% endblock %}
+        
+{% block javascripts %}
+    {{ parent() }}
+    {% include "RssReaderBundle:User:General/javascripts.html.twig" %}
+{% endblock %}
+
+{% block footerjavascripts %}
+    {{ parent() }}
+    {% include "RssReaderBundle:User:General/footer_javascripts.html.twig" %}
+{% endblock %}

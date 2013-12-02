@@ -1,0 +1,12 @@
+{% extends "FOSUserBundle::fos_layout.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="rssreader-reset rssreader-login-page rssreader-confirmed-page">
+        <div class="rssreader-login-form">
+            <div class="rssreader-login-form__field">
+                <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+                <p><a style="margin-top: 15px;" href="{{ path('RssReaderBundle_homepage') }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}

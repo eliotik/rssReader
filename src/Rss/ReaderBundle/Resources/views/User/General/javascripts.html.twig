@@ -1,0 +1,136 @@
+<script type="text/javascript">
+ELM = window.ELM || {};
+ELM.Config = (function (undef) {
+    "use strict";
+    var
+    options = {
+        messages: {
+            dummy_message: ''
+        },
+        ajax: {
+            urlName: {
+                url: '{{ path('RssReaderBundle_homepage') }}',
+                timeout: 30000,
+                type: 'GET'
+            }
+        },
+        params: {
+            borderColor: '#157FCC',
+            backgroundColor: '#ADD2ED'
+        },
+        emptyResult: ''
+    },
+
+    getAjaxOption = function (optionGroupName, optionName, replacements) {
+        var data = ( options.ajax[optionGroupName] !== undef && options.ajax[optionGroupName][optionName] )
+                ? options.ajax[optionGroupName][optionName]
+                : options.emptyResult;
+        if (data !== options.emptyResult && replacements !== undef && optionName === 'url') {
+            for (var option in replacements)
+                data = data.replace('%' + option, replacements[option]);
+        }
+        return data;
+    },
+
+    getMessageOption = function (optionName, replacements) {
+        var message = ( options.messages[optionName] !== undef ) ? options.messages[optionName] : options.emptyResult;
+        if (replacements !== undef)
+            for (var option in replacements)
+                message = message.replace('%' + option, replacements[option]);
+        return message;
+    },
+
+    getOptionValue = function (optionType, optionGroupName, optionName, replacements) {
+        switch (optionType) {
+            case 'ajax':
+                return getAjaxOption(optionGroupName, optionName, replacements);
+            case 'messages':
+                return getMessageOption(optionName, replacements);
+            default:
+                return options.emptyResult;
+        }
+    },
+
+    addMessages = function (data) {
+        if (data === undef || data === null || !data.length || !data instanceof Object) return false;
+        var added = 0,
+                l = data.length;
+        for (var i = 0; i < l; ++i) {
+            if (data[i].name !== undef && data[i].value !== undef) {
+                options.messages[data[i].name] = data[i].value;
+                ++added;
+            }
+        }
+        if (added != l) console.log('Only ' + added + ' from ' + l + ' messages were added to Messages pool');
+        return true;
+    },
+
+    addUrls = function (data) {
+        if (data === undef || data === null || !data.length || !data instanceof Object) return false;
+        var added = 0,
+                l = data.length;
+        for (var i = 0; i < l; ++i) {
+            for (var urlGroup in data[i])
+                if (data[i][urlGroup].url !== undef &&
+                        data[i][urlGroup].type !== undef &&
+                        data[i][urlGroup].timeout !== undef) {
+                    options.ajax[urlGroup] = data[i][urlGroup];
+                    ++added;
+                }
+        }
+        if (added != l) console.log('Only ' + added + ' from ' + l + ' urls were added to Urls pool');
+        return true;
+    },
+
+    addParam = function (paramName, paramValue) {
+        options.params[paramName] = paramValue;
+    },
+
+    getParam = function (paramName) {
+        if (options.params[paramName] !== undef) return options.params[paramName];
+        return null;
+    };
+
+    return {
+        /**
+         * @param optionGroupName example: resort
+         * @param optionName example: url
+         * @param replacements example: { resort: 'TEST' } will replace this /url/%resort/test to /url/TEST/test
+         * @returns {*}
+         */
+        Ajax: function (optionGroupName, optionName, replacements) {
+            return getOptionValue('ajax', optionGroupName, optionName, replacements);
+        },
+        /**
+         * @param optionName example: messageError
+         * @param replacements example: { rep: 'THIS' } will replace this "%rep is message " to "THIS is message"
+         * @returns {*}
+         */
+        Msg: function (optionName, replacements) {
+            return getOptionValue('messages', null, optionName, replacements);
+        },
+        /**
+         * @example ELM.Config.addMsgs([{name: 'test', value: 'test'},{name: 'test1', value: 'test1'},{name: 'test2', value: 'test2'}]);
+         * @param array of objects
+         * @returns boolean true on success
+         */
+        addMsgs: function (data) {
+            return addMessages(data);
+        },
+        /**
+         * @example ELM.Config.addUrls([{ urlGroupName : { url: '/cdata/', timeout : 30000, type: 'POST' } }]);
+         * @param array of objects
+         * @returns boolean true on success
+         */
+        addUrls: function (data) {
+            return addUrls(data);
+        },
+        param: function (paramName, paramValue) {
+            if (paramValue !== undef)
+                return addParam(paramName, paramValue);
+            else
+                return getParam(paramName);
+        }
+    };
+})();
+</script>

@@ -1,0 +1,10 @@
+<div style="display: none;">
+    <div id="header-content">
+        <a href="{{ path("RssReaderBundle_userpage") }}"><strong>RSS Reader</strong></a>
+    </div>
+
+    <div id="auth-header-content">
+        Logged in as <a class="navbar-link"><strong>{{ app.user }}</strong></a> ::
+        <a class="navbar-link" href="{{ path("fos_user_security_logout") }}">Logout</a>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+{% if app.environment == 'dev' %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/rssreader/js/ext/resources/css/ext-all-neptune.css') }}">
+{% endif %}
+<style>
+html {
+    color: #000;
+    background: #FFF
+}
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0
+}
+
+#loading {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -70px
+}
+
+#loading .title {
+    font-family: "Exo", sans-serif;
+    font-size: 2em;
+    color: gray;
+    text-align: center;
+    white-space: nowrap;
+    display: block
+}
+
+#loading .logo {
+    background: url({{ asset('bundles/rssreader/images/loading.gif') }}) no-repeat center;
+    display: block;
+    height: 120px
+}
+
+#header-content {
+    color: #fff;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", sans-serif;
+    font-size: 1.1em;
+    white-space: nowrap
+}
+
+#header-content a {
+    color: #fff
+}
+
+#header-content strong {
+    font-weight: bold;
+    padding-right: 3px
+}
+
+#auth-header-content {
+    text-align: right;
+    color: #fff;
+    line-height: 25px
+}
+
+#auth-header-content div {
+    padding-left: 10px;
+    float: right
+}
+
+#auth-header-content a {
+    color: #fff
+}
+
+.add {
+    background-image:url({{ asset('bundles/rssreader/images/icons/add.png') }}) !important;
+}
+.edit {
+    background-image:url({{ asset('bundles/rssreader/images/icons/application_edit.png') }}) !important;
+}
+.delete {
+    background-image:url({{ asset('bundles/rssreader/images/icons/application_delete.png') }}) !important;
+}
+.refresh {
+    background-image:url({{ asset('bundles/rssreader/images/icons/arrow_refresh.png') }}) !important;
+}
+</style>

@@ -1,0 +1,23 @@
+#global pages
+RssReaderBundle_global_pages:
+    resource: "@RssReaderBundle/Resources/config/global_routing.yml"
+
+#admin pages
+RssReaderBundle_admin_pages:
+    resource: "@RssReaderBundle/Resources/config/admin_routing.yml"
+    prefix: /admin
+
+#user pages
+RssReaderBundle_admin_pages:
+    resource: "@RssReaderBundle/Resources/config/user_routing.yml"
+    prefix: /user
+
+#fos_userbundle
+RssReaderBundle_fos_userbundle:
+    resource: "@RssReaderBundle/Resources/config/fos_user_routing.yml"
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout

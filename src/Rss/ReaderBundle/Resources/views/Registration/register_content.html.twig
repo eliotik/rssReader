@@ -1,0 +1,64 @@
+<div class="rssreader-reset rssreader-login-page rssreader-register-page">
+    <div class="rssreader-login-form">
+        <form method="post" action="{{ path("fos_user_registration_register") }}" {{ form_enctype(form) }}>
+            {% if error is defined %}
+                <div class="error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+            {% endif %}
+            <div class="rssreader-login-form__field">
+                {{ form_errors(form.username) }}
+                {{ form_widget(form.username) }}
+            </div>
+            <div class="rssreader-login-form__field">
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email) }}
+            </div>
+            <div class="rssreader-login-form__field">
+                {{ form_errors(form.plainPassword.pass) }}
+                {{ form_widget(form.plainPassword.pass) }}
+            </div>
+            <div class="rssreader-login-form__field">
+                {{ form_errors(form.plainPassword.confirm) }}
+                {{ form_widget(form.plainPassword.confirm) }}
+            </div>
+            <div class="rssreader-login-form__field">
+                {{ form_rest(form) }}
+                <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="rssreader-login-form__submit" />
+                Go back <a href="{{ path('RssReaderBundle_homepage') }}">home</a>
+            </div>
+        </form>
+    </div>
+</div>
+{#
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register login-form register-form">
+    <div class="beige-title"><h3>Registration</h3></div>
+    <div class="login-inputs">
+        <div>
+            {{ form_errors(form.username) }}
+            {{ form_widget(form.username) }}
+        </div>
+        <div>
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <div>
+            {{ form_errors(form.plainPassword.pass) }}
+            {{ form_widget(form.plainPassword.pass) }}
+        </div>
+        <div>
+            {{ form_errors(form.plainPassword.confirm) }}
+            {{ form_widget(form.plainPassword.confirm) }}
+        </div>
+        <div>
+            {{ form_errors(form.terms) }}
+            {{ form_widget(form.terms) }}
+            {{ form_label(form.terms) }}
+        </div>
+        
+        {{ form_rest(form) }}
+        
+        <div>
+            <a href="{{ path('StoneageCoreBundle_homepage') }}" class="button cancel">Cancel</a>
+            <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="button register" />
+        </div>
+    </div>
+</form> #}

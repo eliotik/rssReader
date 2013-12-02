@@ -1,0 +1,5 @@
+#RssReaderBundle_adminpage:
+#    pattern:  /
+#    defaults: { _controller: RssReaderBundle:Admin:index }
+#    requirements:
+#        _method:  GET

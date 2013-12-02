@@ -1,0 +1,22 @@
+<div class="rssreader-reset rssreader-login-page">
+    <div class="rssreader-login-form">
+        <form method="post" action="{{ path("fos_user_security_check") }}">
+            {% if error %}
+                <div class="error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+            {% endif %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="rssreader-login-form__field">
+                <input required="required" name="_username" type="text" class="rssreader-login-form__login" value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}">
+            </div>
+            <div class="rssreader-login-form__field">
+                <input required="required" name="_password" type="password" class="rssreader-login-form__password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}">
+            </div>
+            <div class="rssreader-login-form__field">
+                <input type="submit" name="_submit" value="Log in" class="rssreader-login-form__submit">
+            </div>
+            <div class="rssreader-login-form__field">
+                Do not have an account? Click <a href="{{ path('fos_user_registration_register') }}">here</a> to register.
+            </div>
+        </form>
+    </div>
+</div>
