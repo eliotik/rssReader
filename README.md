@@ -93,3 +93,12 @@ ExtJS 4.2.1
 =============================================================
 - download from: http://www.sencha.com/products/extjs/download/
 - unpack src/Rss/ReaderBundle/Resources/public/js/ext
+
+Assets
+=============================================================
+- run in root folder next commands
+
+```
+    php app/console assetic:dump
+    php app/console assets:install web --symlik
+```
