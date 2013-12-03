@@ -7,6 +7,7 @@ Apache2.4
 =============================================================
 - create file rssreader.conf at apache conf folder (e.g: /etc/apache2/sites-available )
 - put inside
+```
     <VirtualHost *:80>
             ServerName rssreader.loc
             ServerAdmin mymail@gmail.com
@@ -35,6 +36,7 @@ Apache2.4
             CustomLog /var/log/apache2/rss_reader_access.log combined
 
     </VirtualHost>
+```
 - enable this conf
 - restart apache
 - add configuration line to hosts file
@@ -42,15 +44,17 @@ Apache2.4
 
 MySQL
 =============================================================
-- create database rssreader;
-- grant usage on *.* to rssreader@localhost identified by 'rssreader';
-- grant all privileges on rssreader.* to rssreader@localhost ;
+```
+create database rssreader;
+grant usage on *.* to rssreader@localhost identified by 'rssreader';
+grant all privileges on rssreader.* to rssreader@localhost ;
+```
 
 Parameters
 =============================================================
 - create file app/config/parameters.yml
 - set content:
-```javascript
+```
         parameters:
 
             database_driver: pdo_mysql
