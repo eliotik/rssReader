@@ -12,17 +12,20 @@ class TopicsFixtures extends AbstractFixture implements OrderedFixtureInterface
 	{
 
         $topic1 = new Topic() ;
-        $topic1->setBody("Body of Topic 1") ;
+        $topic1->setText("Body of Topic 1") ;
+        $topic1->setSummary("Summary of Topic 1") ;
         $topic1->setFeed($this->getReference('feed-1'));
         $manager->persist($topic1);
 
         $topic2 = new Topic() ;
-        $topic2->setBody("Body of Topic 2") ;
+        $topic2->setText("Body of Topic 2") ;
+        $topic2->setSummary("Summary of Topic 2") ;
         $topic2->setFeed($this->getReference('feed-1'));
         $manager->persist($topic2);
 
         $topic3 = new Topic() ;
-        $topic3->setBody("Body of Topic 3") ;
+        $topic3->setText("Body of Topic 3") ;
+        $topic3->setSummary("Summary of Topic 3") ;
         $topic3->setFeed($this->getReference('feed-2'));
         $manager->persist($topic3);
 
