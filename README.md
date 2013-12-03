@@ -82,6 +82,13 @@ Parameters
             secret: 'somesecretkey:)'
 ```
 
+Tables creation
+=============================================================
+- in console in root folder of rss reader run next command
+```
+php app/console doctrine:schema:update --force
+```
+
 ExtJS 4.2.1
 =============================================================
 - download from: http://www.sencha.com/products/extjs/download/
