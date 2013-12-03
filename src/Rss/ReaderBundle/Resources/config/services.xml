@@ -8,6 +8,8 @@
         <parameter key="rssreader.listener.login.class">Rss\ReaderBundle\EventListener\SecurityListener</parameter>
         <parameter key="rssreader.registration.class">Rss\ReaderBundle\Form\Type\RegistrationFormType</parameter>
         <parameter key="rssreader.registration.confirmed.class">Rss\ReaderBundle\EventListener\RegistrationConfirmedListener</parameter>
+        <parameter key="rssreader.type.user_id.class">Rss\ReaderBundle\Form\Type\UserIdType</parameter>
+        <parameter key="rssreader.rssloader.class">Rss\ReaderBundle\Services\RssLoader</parameter>
     </parameters>
 
     <services>
@@ -27,6 +29,15 @@
         <service id="rssreader.registration.confirmed" class="%rssreader.registration.confirmed.class%">
             <tag name="kernel.event_subscriber" />
             <argument type="service" id="router"/>
+        </service>
+
+        <service id="rssreader.type.user_id" class="%rssreader.type.user_id.class%">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <tag name="form.type" alias="user_id"/>
+        </service>
+
+        <service id="rssreader.rssloader" class="%rssreader.rssloader.class%">
+            <argument type="service" id="logger"/>
         </service>
 
     </services>

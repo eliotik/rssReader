@@ -4,8 +4,6 @@ namespace Rss\ReaderBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
-use Symfony\Component\Validator\Constraints\True;
 use Rollerworks\Bundle\PasswordStrengthBundle\Validator\Constraints\PasswordStrength;
 
 /**
@@ -45,6 +43,11 @@ class User extends BaseUser
     protected $lastname;
 
     /**
+     * @ORM\OneToMany(targetEntity="Feed", mappedBy="user", cascade={"persist", "remove"})
+     */
+    protected $feeds;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     protected $created;
@@ -77,6 +80,39 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add feed
+     *
+     * @param Feed $feed
+     * @return User
+     */
+    public function addFeed(Feed $feed)
+    {
+        $this->feeds[] = $feed;
+
+        return $this;
+    }
+
+    /**
+     * Remove feed
+     *
+     * @param Feed $feed
+     */
+    public function removeFeed(Feed $feed)
+    {
+        $this->feeds->removeElement($feed);
+    }
+
+    /**
+     * Get feeds
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFeeds()
+    {
+        return $this->feeds;
     }
 
     /**

@@ -13,3 +13,4 @@
 *.php~
 /composer.lock
 /src/Rss/ReaderBundle/Resources/public/js/ext/
+atlassian-ide-plugin.xml

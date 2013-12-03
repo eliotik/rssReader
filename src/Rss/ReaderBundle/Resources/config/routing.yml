@@ -16,6 +16,16 @@ RssReaderBundle_admin_pages:
 RssReaderBundle_fos_userbundle:
     resource: "@RssReaderBundle/Resources/config/fos_user_routing.yml"
 
+#feeds pages
+RssReaderBundle_feeds_pages:
+    resource: "@RssReaderBundle/Resources/config/feeds_routing.yml"
+    prefix: /feeds
+
+#topics pages
+RssReaderBundle_topics_pages:
+    resource: "@RssReaderBundle/Resources/config/topics_routing.yml"
+    prefix: /topics
+
 login_check:
     pattern:   /login_check
 

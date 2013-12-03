@@ -1,0 +1,6 @@
+RssReaderBundle_feed_topics:
+    pattern:  /feed/{id}
+    defaults: { _controller: RssReaderBundle:Topics:list, id: 0 }
+    requirements:
+        _method:  GET
+        id: \d+

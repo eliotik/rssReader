@@ -1,0 +1,31 @@
+RssReaderBundle_feeds_list:
+    pattern:  /list
+    defaults: { _controller: RssReaderBundle:Feeds:list }
+    requirements:
+        _method:  GET
+
+RssReaderBundle_feed_remove:
+    pattern:  /delete/{id}
+    defaults: { _controller: RssReaderBundle:Feeds:delete, id: 0 }
+    requirements:
+        _method:  POST
+        id: \d+
+
+RssReaderBundle_feeds_remove_all:
+    pattern:  /delete/all
+    defaults: { _controller: RssReaderBundle:Feeds:deleteAll }
+    requirements:
+        _method:  POST
+        
+RssReaderBundle_feed_create:
+    pattern:  /create
+    defaults: { _controller: RssReaderBundle:Feeds:create }
+    requirements:
+        _method:  POST
+
+RssReaderBundle_feed_update:
+    pattern:  /update/{id}
+    defaults: { _controller: RssReaderBundle:Feeds:update, id: 0 }
+    requirements:
+        _method:  POST
+        id: \d+

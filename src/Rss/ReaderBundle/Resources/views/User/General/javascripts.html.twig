@@ -8,15 +8,41 @@ ELM.Config = (function (undef) {
             dummy_message: ''
         },
         ajax: {
-            urlName: {
-                url: '{{ path('RssReaderBundle_homepage') }}',
+            feedsList: {
+                url: '{{ path('RssReaderBundle_feeds_list') }}',
+                timeout: 30000,
+                type: 'GET'
+            },
+            feedCreate: {
+                url: '{{ path('RssReaderBundle_feed_create') }}',
+                timeout: 30000,
+                type: 'POST'
+            },
+            feedUpdate: {
+                url: '{{ path('RssReaderBundle_feed_update') }}',
+                timeout: 30000,
+                type: 'POST'
+            },
+            feedRemove: {
+                url: '{{ path('RssReaderBundle_feed_remove') }}',
+                timeout: 30000,
+                type: 'GET'
+            },
+            feedsRemove: {
+                url: '{{ path('RssReaderBundle_feeds_remove_all') }}',
+                timeout: 30000,
+                type: 'GET'
+            },
+            topicsList: {
+                url: '{{ path('RssReaderBundle_feed_topics') }}',
                 timeout: 30000,
                 type: 'GET'
             }
         },
         params: {
             borderColor: '#157FCC',
-            backgroundColor: '#ADD2ED'
+            backgroundColor: '#ADD2ED',
+            user: {{ app.user.id }}
         },
         emptyResult: ''
     },

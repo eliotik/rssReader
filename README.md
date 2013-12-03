@@ -93,3 +93,10 @@ ExtJS 4.2.1
 =============================================================
 - download from: http://www.sencha.com/products/extjs/download/
 - unpack src/Rss/ReaderBundle/Resources/public/js/ext
+
+Crontab
+=============================================================
+- add crontab to run next command every 5 minutes
+```
+*/5 * * * * /usr/bin/php /var/www/rssReader/app/console php app/console rss:feeds:import
+```
