@@ -50,6 +50,10 @@ grant usage on *.* to rssreader@localhost identified by 'rssreader';
 grant all privileges on rssreader.* to rssreader@localhost ;
 ```
 
+Composer
+=============================================================
+To easy install symfony and all components, use composer: https://getcomposer.org/download/
+
 Parameters
 =============================================================
 - create file app/config/parameters.yml

@@ -35,6 +35,7 @@ Ext.define("RssReader.view.topics.Grid", {
             text: 'Summary',
             dataIndex: 'summary',
             flex: 1,
+            tdCls:'wrap-text',
             renderer: function(value, metaData, record) {
                 return this.summaryRender(value, metaData, record)
             }

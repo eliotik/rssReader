@@ -4,7 +4,9 @@ namespace Rss\ReaderBundle\EventListener;
 
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Security\Core\SecurityContext;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+//use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+//use Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
@@ -16,7 +18,7 @@ class SecurityListener
     protected $security;
     protected $dispatcher;
 
-    public function __construct(Router $router, SecurityContext $security, EventDispatcher $dispatcher)
+    public function __construct(Router $router, SecurityContext $security, EventDispatcherInterface $dispatcher)
     {
         $this->router = $router;
         $this->security = $security;
